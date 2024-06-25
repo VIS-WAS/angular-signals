@@ -1,4 +1,11 @@
-import { Component, DoCheck, Signal, signal } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Signal,
+  computed,
+  effect,
+  signal,
+} from '@angular/core';
 import { single } from 'rxjs';
 
 @Component({
@@ -9,6 +16,11 @@ import { single } from 'rxjs';
 export class SignalsComponent implements DoCheck {
   counter = signal(0);
   message = signal<string[]>([]);
+  doubleCounter = computed(() => this.counter() * 2);
+
+  constructor() {
+    effect(() => console.log('New  counter value is ' + this.counter()));
+  }
 
   increment() {
     // this.counter.set(this.counter() + 1);
