@@ -1,4 +1,5 @@
 import { Component, DoCheck, Signal, signal } from '@angular/core';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'app-signals',
@@ -7,14 +8,18 @@ import { Component, DoCheck, Signal, signal } from '@angular/core';
 })
 export class SignalsComponent implements DoCheck {
   counter = signal(0);
-  message: string[] = [];
+  message = signal<string[]>([]);
 
   increment() {
     // this.counter.set(this.counter() + 1);
     this.counter.update((prev) => prev + 1);
+    this.message.mutate((prev) =>
+      prev.push('CURRENT VALUE ADDED IS ' + this.counter())
+    );
   }
   decrement() {
     this.counter.update((prev) => prev - 1);
+    this.message.mutate((prev) => prev.pop());
   }
 
   ngDoCheck() {
