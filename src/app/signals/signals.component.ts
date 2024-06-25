@@ -10,7 +10,8 @@ export class SignalsComponent implements DoCheck {
   message: string[] = [];
 
   increment() {
-    this.counter;
+    // this.counter.set(this.counter() + 1);
+    this.counter.update((prev) => prev + 1);
   }
   decrement() {
     this.counter;
