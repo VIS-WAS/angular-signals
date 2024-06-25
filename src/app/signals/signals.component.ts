@@ -14,7 +14,7 @@ export class SignalsComponent implements DoCheck {
     this.counter.update((prev) => prev + 1);
   }
   decrement() {
-    this.counter;
+    this.counter.update((prev) => prev - 1);
   }
 
   ngDoCheck() {
