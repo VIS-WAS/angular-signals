@@ -29,6 +29,7 @@ export class SignalsComponent implements DoCheck {
       prev.push('CURRENT VALUE ADDED IS ' + this.counter())
     );
   }
+  //this was to check shortcut of git add and commit
   decrement() {
     this.counter.update((prev) => prev - 1);
     this.message.mutate((prev) => prev.pop());
