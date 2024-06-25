@@ -5,10 +5,11 @@
 
   <span>{{ doubleCounter() }}</span>
 </div>
-<h1>tasks created:</h1>
+<h1>Tasks created:</h1>
 
 <div class="task-container">
   <div class="task-item" *ngFor="let msg of message()">
     <p>{{ msg }}</p>
+    <hr />
   </div>
 </div>
